@@ -1,13 +1,12 @@
 
-# Back end python and psql
+# Log Analysis
 
-Source code for a backend server made with python
-and psql, this is a repo for studies and consultation purpose
+Source code for a log analysis udacity project
 
 ## Getting Started
 
 Install Vagrant And VirtualBox and
-clone this repositore and log into the vagrant machine
+Clone this repository to the vagrant foler
 ### Prerequisites
 
 * Python 3
@@ -39,16 +38,25 @@ vagrant up
 ```
 vagrant ssh
 ```
+* clone this repository  
 
+```
+git clone or download
+```
+* run log-analysis.py
+
+```
+python log-analysis.py
+```
 
 
 ## Authors
 
-* **udacity team** - *all work* - check on the CODEOWNERS file
+* **Yusef richard** - *all work* - [yusefrich](https://github.com/PurpleBooth)
 
 
 # Udacity student data
 
  *NAME*: Yusef Richard de Oliveira Alves <p>
- *COURSE*: udacity Nanodegree fullstack <p>
+ *COURSE*: udacityNanodegree fullstack <p>
  *EMAIL*:yusef.rick@gmail.com <p>
