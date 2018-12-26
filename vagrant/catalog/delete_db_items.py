@@ -13,3 +13,12 @@ def delete_Restaurants(myRestaurantQuery):
     session.delete(restaurant)
     session.commit()
 
+def delete_MenuItem(menu_id):
+    engine = create_engine('sqlite:///restaurantmenu.db')
+    Base.metadata.bind = engine
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+
+    itemToDelete = session.query(MenuItem).filter_by(id=menu_id).one()
+    session.delete(itemToDelete)
+    session.commit()

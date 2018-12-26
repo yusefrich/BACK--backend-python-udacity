@@ -14,6 +14,29 @@ def add_Restaurants(newRestaurantName):
     session.commit()
 
 
+def add_MenuItem(restaurantId, itemName, itemPrice, itemDescription):
+    engine = create_engine('sqlite:///restaurantmenu.db')
+    Base.metadata.bind = engine
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+
+    newMenuItem = MenuItem(name=itemName, description=itemDescription,
+                           course="Entree", price=itemPrice, restaurant_id=restaurantId)
+    session.add(newMenuItem)
+    session.commit()
+
+def update_MenuItem(MenuID, newItemName):
+    engine = create_engine('sqlite:///restaurantmenu.db')
+    Base.metadata.bind = engine
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+
+    editedItem = session.query(MenuItem).filter_by(id=MenuID).one()
+    editedItem.name = newItemName
+    session.add(editedItem)
+    session.commit()
+
+
 def update_Restaurants(myRestaurant):
     engine = create_engine('sqlite:///restaurantmenu.db')
     Base.metadata.bind = engine

@@ -1,7 +1,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from request_db_itens import get_Restaurants
-from add_db_itens import add_Restaurants, update_Restaurants
-from delete_db_itens import delete_Restaurants
+from request_db_items import get_Restaurants
+from add_db_items import add_Restaurants, update_Restaurants
+from delete_db_items import delete_Restaurants
 import cgi
 
 
