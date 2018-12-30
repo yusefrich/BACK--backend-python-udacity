@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='custom-bootstrap.css') }}">
+	</head>
+    <body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url_for('showRestaurants') }}">Richard Restaurants</a>
+        </div>
+    </nav>
+
+
+    <!--MESSAGE FLASHING EXAMPLE -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    <ul>
+    {% for message in messages %}
+      <li><strong>{{ message }}</strong></li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <div class="container mt-5">
+        <div class="accordion" id="accordionExample">
+        {% for r in restaurants %}
+
+
+
+          <div class="card">
+            <div class="card-header" id="heading{{r.id}}">
+              <h2 class="mb-0">
+                  <div class="list-group" id="list-tab" role="tablist">
+                    <a class="d-flex justify-content-between list-group-item btn active btn-link" id="list-home-list" data-toggle="collapse" href="#collapse{{r.id}}" role="tab" aria-expanded="true" aria-controls="collapse{{r.id}}">
+                        {{r.name}}
+                    </a>
+                  </div>
+              </h2>
+            </div>
+
+            <div id="collapse{{r.id}}" class="collapse" aria-labelledby="heading{{r.id}}" data-parent="#accordionExample">
+              <div class="card-body">
+                  <p>
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </p>
+                <a class="btn btn-primary" href="{{url_for('showMenu', restaurant_id = r.id)}}">
+                    <h2>show restaurant</h2>
+                </a>
+                <a class="btn btn-primary" href="{{url_for('editRestaurant', restaurant_id = r.id)}}"> edit </a>
+                <a class="btn btn-primary" href="{{url_for('deleteRestaurant', restaurant_id = r.id)}}"> delete </a>
+                <br>
+              </div>
+            </div>
+          </div>
+
+        {% endfor %}
+        </div>
+    </div>
+        <a href="{{url_for('newRestaurant')}}"> create new restaurant</a>
+        <br>
+        <br>
+
+
+        <!-- scripts area -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

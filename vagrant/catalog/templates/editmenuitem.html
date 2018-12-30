@@ -6,7 +6,7 @@
 <body>
 <h1> Edit current menu Item </h1>
 
-<a href="{{url_for('restaurantMenu', restaurant_id=restaurant_id)}}"> exit </a>
+<a href="{{url_for('showMenu', restaurant_id=restaurant_id)}}"> exit </a>
 
 <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=menu_id )}}" method = 'POST'>
 
