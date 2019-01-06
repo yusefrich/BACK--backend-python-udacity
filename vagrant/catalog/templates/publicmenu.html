@@ -1,6 +1,8 @@
-{% extends "main.html" %}
-{% block content %}
-{% include "header.html" %}
+<html>
+    <head>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+    <body>
 	
 	<div class="row divider green">
 		<div class="col-md-12"></div>
@@ -92,4 +94,6 @@
 			<div class="col-md-1"></div>
 		</div>
 	{% endif %}
-{% endblock %}
+    </body>
+
+</html>
